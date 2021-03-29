@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNotes_v0.1", "CNotes_v0.1\CNotes_v0.1.csproj", "{5313F9DE-831F-465E-A92E-01FB7D8267C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5313F9DE-831F-465E-A92E-01FB7D8267C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5313F9DE-831F-465E-A92E-01FB7D8267C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5313F9DE-831F-465E-A92E-01FB7D8267C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5313F9DE-831F-465E-A92E-01FB7D8267C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FED885C-964A-4C2E-A75E-73B7EFA57C0B}
+	EndGlobalSection
+EndGlobal
