@@ -19,6 +19,8 @@ namespace CNotes_v0._1
         public MainMenu()
         {
             InitializeComponent();
+            var database = @".\database\";
+            Directory.CreateDirectory(database);
             var admin = IsAdmin();
             if (admin == false)
             {
