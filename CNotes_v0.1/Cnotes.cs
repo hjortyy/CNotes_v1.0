@@ -113,7 +113,8 @@ namespace CNotes_v0._1
         
         public static string BytesToString(byte[] bytes)
         {
-            /* Changes the MD5 hash bytes to string format */
+            /* Changes the MD5 hash bytes to string format
+             * Only used in tandem with "GetHashMd5()"     */
             string result = "";
             foreach (byte b in bytes) result += b.ToString("x2");
             return result;
@@ -166,32 +167,6 @@ namespace CNotes_v0._1
             {
 
             }
-            /*
-            string caseID = ReturnCaseID().ToString();
-            var destinationPath = @".\FileAttachments\" + caseID;
-            Directory.CreateDirectory(destinationPath);
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                var filePath = openFileDialog1.FileName;
-                string destinationFile = Path.Combine(destinationPath, newname.ToString());
-                File.Copy(filePath, destinationFile, true);
-                using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
-                {
-                    var name = newname.ToString();
-                    var collection = db.GetCollection<Attachments>("attachments");
-                    var attachment = new Attachments
-                    {
-                        Hash = BytesToString(GetHashMd5(destinationFile)),
-                        Name = name
-                    };
-                    collection.Insert(attachment);
-                    var query = collection
-                        .Find(Query.EQ("Name", name))
-                        .Select(x => x.Id).FirstOrDefault();
-                    attachID = query;
-                }
-            }
-            */
         }
 
         public static string caseIDtopass = "";
@@ -220,21 +195,6 @@ namespace CNotes_v0._1
                 MessageBox.Show("You must select a case from the drop down menu at the top", "Error");
                 return null;
             }
-            /*
-            string selectedCase = CaseBox.SelectedItem.ToString();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
-            {
-                var collection = db.GetCollection<Cases>("cases");
-                var query = collection
-                    .Find(Query.EQ("Case_Name", selectedCase))
-                    .Select(x => x.Id).FirstOrDefault();
-
-                string caseID = query.ToString();
-                int caseIDnr = Int32.Parse(caseID);
-                caseIDtopass = caseID;              // Sets the value of the caseIDtopass variable so it can be called from the "Save" form, used for screenshots
-                return caseIDnr;
-            } 
-            */
         }
 
         public void Submit_Click(object sender, EventArgs e)
@@ -259,7 +219,8 @@ namespace CNotes_v0._1
 
         private void NoteInsert(string note_text, int time, int caseID, string attachmentID, string screenshotID)
         {
-            /*  */
+            /* Happens when the "Submit" button is pressed, takes the information 
+             * defined in "Submit_Click" function and adds it to the database */
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
                 var collection = db.GetCollection<Entry>("entries");
@@ -283,14 +244,12 @@ namespace CNotes_v0._1
 
         public static int? screenID = null;
         private void Screenshot_Click(object sender, EventArgs e)
-        {   // Launches the "Save" form
+        {   // Launches the "SelectArea" form using the same method as the "MainMenu", redefined below
             int? caseID = ReturnCaseID();
             if (caseID != null)
             {
                 LoadForm(new SelectArea());
             }
-            else;
-            
         }
         private void LoadForm(Form frm)
         {   // Handles how a new form is shown

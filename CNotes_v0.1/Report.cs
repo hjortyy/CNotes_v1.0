@@ -339,58 +339,6 @@ namespace CNotes_v0._1
             {
 
             }
-            /*
-            string zipfoldername = caseid.ToString() + "CasePacket.zip";
-            string zippath = @".\" + zipfoldername;
-            string screenshots = @".\Screenshots\" + caseid.ToString();
-            string attachments = @".\FileAttachments\" + caseid.ToString();
-            string filename = caseid.ToString() + "CaseLog.pdf";
-            CreateHTML(caseid);
-            PdfSharpConvert(filename);
-            string html = @".\html.txt";
-            string caselog = @".\" + filename;
-            using (FileStream zipfolder = new FileStream(zippath, FileMode.Create))
-            {
-                using (ZipArchive zip = new ZipArchive(zipfolder, ZipArchiveMode.Create))
-                {
-                    ZipArchiveEntry readmeEntry;
-                    DirectoryInfo s = new DirectoryInfo(screenshots);
-                    FileInfo[] screenshot = s.GetFiles("*");
-                    foreach (FileInfo file in screenshot)
-                    {
-                        readmeEntry = zip.CreateEntryFromFile(screenshots + "\\" + file.Name, "Screenshots" + "/" + caseid.ToString() + "/" + file.Name);
-                    }
-                    DirectoryInfo a = new DirectoryInfo(attachments);
-                    FileInfo[] attachment = a.GetFiles("*");
-                    foreach (FileInfo file in attachment)
-                    {
-                        readmeEntry = zip.CreateEntryFromFile(attachments + "\\" + file.Name, "FileAttachments" + "/" + caseid.ToString() + "/" + file.Name);
-                    }
-                    zip.CreateEntryFromFile(html, "html.txt");
-                    zip.CreateEntryFromFile(caselog, filename);
-                }
-            }
-            */
-            /*
-            using (var archive = ZipFile.Open(zippath, ZipArchiveMode.Create))
-            {
-                archive.CreateEntryFromFile(screenshots, "Screenshots");
-                archive.CreateEntryFromFile(attachments, "FileAttachments");
-                archive.CreateEntryFromFile(html, "html.txt");
-                archive.CreateEntryFromFile(caselog, filename);
-            }
-            */
-                /*
-            var screenshots = Directory.GetFiles(@".\Screenshots\" + caseid.ToString());
-            var attachments = Directory.GetFiles(@".\FileAttachments\" + caseid.ToString());
-            using (var archive = ZipFile.Open(zippath, ZipArchiveMode.Create))
-            {
-                foreach (var fpath in screenshots)
-                {
-                    archive.CreateEntryFromFile(fpath, Path.GetFileName(fpath));
-                }
-            }
-                */
         }
     }
 }
