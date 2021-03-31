@@ -54,8 +54,10 @@ namespace CNotes_v0._1
 
         public static string screenNametopass = "";
         public static string screenDesttopass = "";
+        public static int wassaved = 0;
         private void btnSave_Click(object sender, EventArgs e)
         {
+            wassaved = 1;
             int newname = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             screenNametopass = newname.ToString();
             string caseID = Cnotes.caseIDtopass;
@@ -80,6 +82,7 @@ namespace CNotes_v0._1
                     .Select(x => x.Id).FirstOrDefault();
                 Cnotes.screenID = query;
             }
+            
             Close();
         }
 

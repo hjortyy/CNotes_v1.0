@@ -13,6 +13,7 @@ namespace CNotes_v0._1
 {
     public partial class SelectArea : Form
     {
+        
         //Moving window by click-drag on a control https://stackoverflow.com/a/13477624/5260872
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -27,11 +28,11 @@ namespace CNotes_v0._1
         public SelectArea()
         {
             InitializeComponent();
-
             this.Opacity = .5D; //Make trasparent
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true); // this is to avoid visual artifacts
         }
+
 
         private const int
             HTLEFT = 10,
@@ -59,7 +60,15 @@ namespace CNotes_v0._1
         }
         private void frm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Show();
+            if (Save.wassaved != 1)
+            {
+                this.Show();
+            }
+            else
+            {
+                Close();
+            }
+            
         }
 
 
