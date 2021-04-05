@@ -15,10 +15,11 @@ namespace CNotes_v0._1
     {
         public Info2()
         {
+            /* Calls the FirstRun function to populate the database.
+             * Then fills the listbox with information from it */
             InitializeComponent();
             FirstRun();
             FillFields(listBox1);
-            
         }
 
         public class User
@@ -33,6 +34,10 @@ namespace CNotes_v0._1
 
         public void FirstRun()
         {
+            /* If the User collection is empty, populates it with spaces.
+             * This is so that the rest of the form runs smoothly, 
+             * as in the fields that depend on information from the database
+             * are still able to be populated. */
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
                 var collection = db.GetCollection<User>("user");
@@ -57,7 +62,8 @@ namespace CNotes_v0._1
 
         public void FillFields(ListBox listBox)
         {
-            FirstRun();
+            /* Fetches information from the User collection of the database, 
+             * then adds that to the listbox to display the information back to the user */
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
                 var collection = db.GetCollection<User>("user");
@@ -97,16 +103,25 @@ namespace CNotes_v0._1
 
         public void button1_Click(object sender, EventArgs e)
         {
+            /* Takes the information from the text boxes on the form 
+             * and inserts it into the database, then runs the FillFields
+             * function again to update the listbox */
             string firstname = firstnameTextBox.Text;
             string lastname = lastnameTextBox.Text;
             string company = companyTextBox.Text;
             string department = departmentTextBox.Text;
             string email = emailTextBox.Text;
+            /*
+             * Decided that clearing the information from the text boxes
+             * would be uncomfortable. If the user made a mistake they
+             * would have to input the whole field.
+             * 
             firstnameTextBox.Clear();
             lastnameTextBox.Clear();
             companyTextBox.Clear();
             departmentTextBox.Clear();
             emailTextBox.Clear();
+            */
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
                 var collection = db.GetCollection<User>("user");

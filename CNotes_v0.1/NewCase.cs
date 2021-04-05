@@ -30,6 +30,7 @@ namespace CNotes_v0._1
 
         private void SubmitCaseChangesButton_Click_1(object sender, EventArgs e)
         {
+            /* Gets the information from the text fields */
             string CaseName = CaseNameTextbox.Text;
             string CaseNumber = CaseNumberTextbox.Text;
             string StartDate = StartDateCal.Value.ToString();
@@ -42,6 +43,8 @@ namespace CNotes_v0._1
             CaseNameTextbox.Clear();
             CaseNumberTextbox.Clear();
             
+            /* Inserts that information into the database and creates 
+             * new file directories for screenshots and attachments */
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
                 var col = db.GetCollection<Cases>("cases");

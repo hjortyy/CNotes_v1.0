@@ -14,6 +14,9 @@ using LiteDB;
 
 namespace CNotes_v0._1
 {
+    /* Written by Nishan Chathuranga Wickramarathna
+     * https://github.com/nishanc/csharp-screenshot-winforms
+     * Adapted for use with CNotes */
     public partial class Save : Form
     {
         Bitmap bmp;

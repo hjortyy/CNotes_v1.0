@@ -15,7 +15,7 @@ namespace CNotes_v0._1
     {
         public CaseManager()
         {
-            
+            /* Calls the FillTheList function */
             InitializeComponent();
             FillTheList(CaseListBox);
         }
@@ -31,6 +31,7 @@ namespace CNotes_v0._1
 
         public void SetDateTimeFormat()
         {
+            /* Declares how date and time data is formatted */
             StartDateCal.Format = DateTimePickerFormat.Custom;
             StartDateCal.CustomFormat = "mm/dd/yyyy";
             EndDateCal.Format = DateTimePickerFormat.Custom;
@@ -41,6 +42,10 @@ namespace CNotes_v0._1
 
         private void FillTheList(ListBox listBox)
         {
+            /* Clears the listbox that displays a list of cases. 
+             * Then queries the database for all saved cases, 
+             * their case number, and their case ID, and populates 
+             * the list with that information. */
             listBox.Items.Clear();
             using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
             {
@@ -64,6 +69,8 @@ namespace CNotes_v0._1
 
         public void CaseListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /* When a case is selected from the case list, 
+             * it populates the text boxes of the form with that case's information. */
             string CaseID = CaseListBox.SelectedItem.ToString();            //get Case_ID from selected item of ListBox
             int index = CaseID.IndexOf(' ');                                //trim the selected item string to fit in the query
             if (index > 0)
@@ -113,6 +120,9 @@ namespace CNotes_v0._1
 
         private void SubmitCaseChangesButton_Click(object sender, EventArgs e)
         {
+            /* Takes the information from the text boxes of the form and updates 
+             * the database entry for that case with that information. 
+             * It then runs the FillTheList function again to update its information. */
             string CaseID = CaseListBox.SelectedItem.ToString();            //get Case_ID from selected item of ListBox
             int index = CaseID.IndexOf(' ');                                //trim the selected item string to fit in the query
             if (index > 0)
@@ -145,10 +155,12 @@ namespace CNotes_v0._1
 
         private void NewCaseButton_Click(object sender, EventArgs e)
         {
+            /* Launches the "NewCase" form using the same method as the "MainMenu", redefined below */
             LoadForm(new NewCase());
         }
         private void LoadForm(Form frm)
         {
+            // Handles how a new form is shown
             frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
             this.Hide();
             frm.Show();
@@ -156,6 +168,7 @@ namespace CNotes_v0._1
 
         void frm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // Handles what happens when a new form, launched from this form, is closed
             this.Show();
             FillTheList(CaseListBox);
         }

@@ -133,7 +133,11 @@ namespace CNotes_v0._1
 
         private void Attach_Click(object sender, EventArgs e)
         {
-            /*  */
+            /* Declares the name of the attachments, checks if there is a selected case.
+             * If there is then it creates a directory (if it did not already exist)
+             * and opens a file dialog where the user can select a file to attach.
+             * The name of the file and its MD5 hash are inserted into the Attachments
+             * collection of the database. */
             int newname = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             int? caseIDnr = ReturnCaseID();
             if (caseIDnr != null)
@@ -172,7 +176,9 @@ namespace CNotes_v0._1
         public static string caseIDtopass = "";
         public int? ReturnCaseID()
         {
-            /*  */
+            /* Gets the caseID of the selected case from the case list box. If 
+             * no case is selected, a message box pops up, informing the user
+             * that they must select a case. */
             
             try
             {
@@ -199,6 +205,10 @@ namespace CNotes_v0._1
 
         public void Submit_Click(object sender, EventArgs e)
         {
+            /* Takes the information from the note text box, the caseID, the attachID flag, 
+             * the screenID flag, the current timestamp, and passes it all to the NoteInsert
+             * fuction. It then updates the note view box, clears the note text box, and resets
+             * the screenID and attachID flags. */
             string note = NoteBox.Text;
             int? caseID = ReturnCaseID();
             if (caseID != null)
