@@ -246,6 +246,7 @@ namespace CNotes_v0._1
         private void Screenshot_Click(object sender, EventArgs e)
         {   // Launches the "SelectArea" form using the same method as the "MainMenu", redefined below
             int? caseID = ReturnCaseID();
+            Save.wassaved = 0;
             if (caseID != null)
             {
                 LoadForm(new SelectArea());
