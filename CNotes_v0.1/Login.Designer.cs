@@ -1,7 +1,7 @@
 ﻿
 namespace CNotes_1
 {
-    partial class Password
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,11 @@ namespace CNotes_1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Password));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -60,11 +61,22 @@ namespace CNotes_1
             this.label2.Text = "If this is your first time running the program, create a password. \r\n\r\nOn any oth" +
     "er run, put in the password you created.";
             // 
+            // login
+            // 
+            this.login.Location = new System.Drawing.Point(244, 115);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(75, 23);
+            this.login.TabIndex = 3;
+            this.login.Text = "Login";
+            this.login.UseVisualStyleBackColor = true;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
             // Password
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 121);
+            this.ClientSize = new System.Drawing.Size(333, 150);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -81,5 +93,6 @@ namespace CNotes_1
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button login;
     }
 }

@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace CNotes_1
 {
-    public partial class Password : Form
+    public partial class Login : Form
     {
-        public Password()
+        public Login()
         {
             InitializeComponent();
+        }
+
+        public static string password = "";
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            password = textBox1.Text;
+            this.Close();
         }
     }
 }

@@ -26,12 +26,14 @@ namespace CNotes_v0._1
             InitializeComponent();
             var database = @".\database\";
             Directory.CreateDirectory(database);
-            var admin = IsAdmin();
+            /*var admin = IsAdmin();
             if (admin == false)
             {
                 MessageBox.Show("You should run this program as Admin!", "Error");
                 this.Close();
-            }
+            }*/
+            LoadForm(new Login());
+            
         }
 
         public static bool IsAdmin()
