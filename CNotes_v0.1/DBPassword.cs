@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CNotes_1
 {
-    public partial class Login : Form
+    public partial class DBPassword : Form
     {
-        public Login()
+        public DBPassword()
         {
             InitializeComponent();
         }
