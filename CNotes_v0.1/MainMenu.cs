@@ -32,7 +32,6 @@ namespace CNotes_v0._1
                 MessageBox.Show("You should run this program as Admin!", "Error");
                 this.Close();
             }
-            
         }
 
         public static bool IsAdmin()
