@@ -32,8 +32,6 @@ namespace CNotes_v0._1
                 MessageBox.Show("You should run this program as Admin!", "Error");
                 this.Close();
             }*/
-            LoadForm(new ());
-            
         }
 
         public static bool IsAdmin()
@@ -83,6 +81,11 @@ namespace CNotes_v0._1
             /* Loads the Report form when the Report button
              * is pressed using the LoadForm function*/
             LoadForm(new Report());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
