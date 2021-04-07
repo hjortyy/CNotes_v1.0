@@ -38,7 +38,7 @@ namespace CNotes_v0._1
              * This is so that the rest of the form runs smoothly, 
              * as in the fields that depend on information from the database
              * are still able to be populated. */
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<User>("user");
                 var query = collection
@@ -48,11 +48,11 @@ namespace CNotes_v0._1
                     var empty = new User
                     {
                         Id = 1,
-                        First_Name = " ",
-                        Last_Name = " ",
-                        Company = " ",
-                        Department = " ",
-                        Contact_Email = " "
+                        First_Name = "*",
+                        Last_Name = "*",
+                        Company = "*",
+                        Department = "*",
+                        Contact_Email = "*"
                     };
                     collection.Insert(empty);
                 }
@@ -64,7 +64,7 @@ namespace CNotes_v0._1
         {
             /* Fetches information from the User collection of the database, 
              * then adds that to the listbox to display the information back to the user */
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<User>("user");
                 var query = collection
@@ -122,7 +122,7 @@ namespace CNotes_v0._1
             departmentTextBox.Clear();
             emailTextBox.Clear();
             */
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<User>("user");
                 var update = collection

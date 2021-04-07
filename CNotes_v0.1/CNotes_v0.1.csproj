@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5313F9DE-831F-465E-A92E-01FB7D8267C6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CNotes_1</RootNamespace>
+    <RootNamespace>CNotes_v0._1</RootNamespace>
     <AssemblyName>CNotes</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -153,11 +153,11 @@
     <Compile Include="CaseManager.Designer.cs">
       <DependentUpon>CaseManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBPassword.cs">
+    <Compile Include="DBPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DBPassword.Designer.cs">
-      <DependentUpon>DBPassword.cs</DependentUpon>
+    <Compile Include="DBPass.Designer.cs">
+      <DependentUpon>DBPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Report.cs">
       <SubType>Form</SubType>
@@ -212,6 +212,9 @@
     <EmbeddedResource Include="Cnotes.resx">
       <DependentUpon>Cnotes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DBPass.resx">
+      <DependentUpon>DBPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Info2.resx">
       <DependentUpon>Info2.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,9 +223,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewCase.resx">
       <DependentUpon>NewCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DBPassword.resx">
-      <DependentUpon>DBPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

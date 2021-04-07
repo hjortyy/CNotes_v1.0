@@ -9,13 +9,23 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Principal;
 using System.Windows.Forms;
+using LiteDB;
 
 
 namespace CNotes_v0._1
 {
     public partial class MainMenu : Form
     {
-        
+        public class User
+        {
+            public int Id { get; set; }
+            public string First_Name { get; set; }
+            public string Last_Name { get; set; }
+            public string Company { get; set; }
+            public string Department { get; set; }
+            public string Contact_Email { get; set; }
+        }
+
         public MainMenu()
         {
             /* Creates a directory for the database
@@ -24,14 +34,73 @@ namespace CNotes_v0._1
              * the user to run as admin, then exits the program.
              * If the user is admin, runs as normal */
             InitializeComponent();
+            LReport.Enabled = false;
+            LCNotes.Enabled = false;
+            LCase.Enabled = false;
             var database = @".\database\";
             Directory.CreateDirectory(database);
-            /*var admin = IsAdmin();
+            var admin = IsAdmin();
             if (admin == false)
             {
                 MessageBox.Show("You should run this program as Admin!", "Error");
                 this.Close();
-            }*/
+            }
+            else
+            {
+                if (DBPass.password == "")
+                {
+                    DBPass obj = new DBPass();
+                    this.Hide();
+                    obj.ShowDialog();
+                    line = $"password={DBPass.password} ;filename=.\\database\\Lite.db";
+                }
+                InfoFilled();
+
+            }
+            
+            
+        }
+
+        public static string line = $"";
+
+        private void InfoFilled()
+        {
+            using (var db = new LiteDatabase(MainMenu.line))
+            {
+                var collection = db.GetCollection<User>("user");
+                var query = collection
+                    .Find(Query.EQ("_id", 1))
+                    .Select(x => new
+                    {
+                        firstname = x.First_Name,
+                        lastname = x.Last_Name,
+                        company = x.Company,
+                        department = x.Department,
+                        email = x.Contact_Email
+                    }).ToList();
+                foreach (var itemlist in query)
+                {
+                    string firstname = itemlist.firstname;
+                    string lastname = itemlist.lastname;
+                    string company = itemlist.company;
+                    string department = itemlist.department;
+                    string email = itemlist.email;
+                    List<string> infolist = new List<string>(new string[] { firstname, lastname, company, department, email });
+                    if (infolist.Distinct().Skip(1).Any())
+                    {
+                        LReport.Enabled = true;
+                        LCase.Enabled = true;
+                        LCNotes.Enabled = true;
+                    }
+                    else
+                    {
+                        LReport.Enabled = false;
+                        LCase.Enabled = false;
+                        LCNotes.Enabled = false;
+                    }
+                }
+                    
+            }
         }
 
         public static bool IsAdmin()
@@ -53,6 +122,7 @@ namespace CNotes_v0._1
             /* Sends to LoadForm function what should be done when the form loaded is closed.
              * When the form launched is closed, it will show the Main Menu */
             this.Show();
+            InfoFilled();
         }
         private void LCNotes_Click(object sender, EventArgs e)
         {
@@ -83,9 +153,9 @@ namespace CNotes_v0._1
             LoadForm(new Report());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Login()
         {
-            
+            LoadForm(new DBPass());
         }
     }
 }

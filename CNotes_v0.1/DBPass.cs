@@ -8,21 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CNotes_1
+namespace CNotes_v0._1
 {
-    public partial class DBPassword : Form
+    public partial class DBPass : Form
     {
-        public DBPassword()
+        public DBPass()
         {
             InitializeComponent();
         }
 
         public static string password = "";
-
-        private void login_Click(object sender, EventArgs e)
+        public void login_Click_1(object sender, EventArgs e)
         {
             password = textBox1.Text;
-            this.Close();
+            Close();
         }
     }
 }

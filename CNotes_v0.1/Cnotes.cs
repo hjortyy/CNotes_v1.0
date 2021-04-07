@@ -51,13 +51,14 @@ namespace CNotes_v0._1
         }
         
 
+
         private MD5 md5 = MD5.Create();
 
         private void FillTheBox(ComboBox CaseBox)
         {
             /*Fills the dropdown listbox with case names*/
             CaseBox.Items.Clear();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var query = collection
@@ -80,7 +81,7 @@ namespace CNotes_v0._1
             displayNotes.Columns.Add("Attachment", 50);
             displayNotes.Columns.Add("Screenshot", 50);
             int? selectedcase = ReturnCaseID();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Entry>("entries");
                 var query = collection
@@ -150,7 +151,7 @@ namespace CNotes_v0._1
                     var filePath = openFileDialog1.FileName;
                     string destinationFile = Path.Combine(destinationPath, newname.ToString());
                     File.Copy(filePath, destinationFile, true);
-                    using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+                    using (var db = new LiteDatabase(MainMenu.line))
                     {
                         var name = newname.ToString();
                         var collection = db.GetCollection<Attachments>("attachments");
@@ -183,7 +184,7 @@ namespace CNotes_v0._1
             try
             {
                 string selectedCase = CaseBox.SelectedItem.ToString();
-                using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+                using (var db = new LiteDatabase(MainMenu.line))
                 {
                     var collection = db.GetCollection<Cases>("cases");
                     var query = collection
@@ -231,7 +232,7 @@ namespace CNotes_v0._1
         {
             /* Happens when the "Submit" button is pressed, takes the information 
              * defined in "Submit_Click" function and adds it to the database */
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Entry>("entries");
                 var entry = new Entry

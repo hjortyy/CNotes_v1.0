@@ -47,7 +47,7 @@ namespace CNotes_v0._1
              * their case number, and their case ID, and populates 
              * the list with that information. */
             listBox.Items.Clear();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var queryID = collection
@@ -76,7 +76,7 @@ namespace CNotes_v0._1
             if (index > 0)
                 CaseID = CaseID.Substring(0, index);
             int ID = Int32.Parse(CaseID);
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var query = collection

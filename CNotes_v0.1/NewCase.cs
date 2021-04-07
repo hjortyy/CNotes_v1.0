@@ -45,7 +45,7 @@ namespace CNotes_v0._1
             
             /* Inserts that information into the database and creates 
              * new file directories for screenshots and attachments */
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var col = db.GetCollection<Cases>("cases");
                 var newcase = new Cases

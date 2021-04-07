@@ -73,7 +73,7 @@ namespace CNotes_v0._1
             /* Fills the listview of cases with information gotten from the
              * database table "Cases". Fetches both Case_Id and Case_Number.*/
             listBox.Items.Clear();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var queryID = collection
@@ -104,7 +104,7 @@ namespace CNotes_v0._1
             sw.WriteLine("<table style=\"width: 250px; \">");
             sw.WriteLine("<tbody>");
             sw.WriteLine("<tr>");
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 /* Gets information from "User" table*/
                 var collection = db.GetCollection<User>("user");
@@ -152,7 +152,7 @@ namespace CNotes_v0._1
             sw.WriteLine("<table style=\"width: 350px; \">");
             sw.WriteLine("<tbody>");
             sw.WriteLine("<tr>");
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var userinfo = collection
@@ -190,7 +190,7 @@ namespace CNotes_v0._1
             sw.WriteLine("<td style=\"width: 90px; font-weight: bold;\">Time</td>");
             sw.WriteLine("<td style=\"width: 450px; font-weight: bold;\">Note Text</td>");
             sw.WriteLine("</tr>");
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Entry>("entries");
                 var query = collection

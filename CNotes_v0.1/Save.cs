@@ -71,7 +71,7 @@ namespace CNotes_v0._1
             File.Copy(@".\temp.jpeg", destinationFile, true);
             string screenhash = BytesToString(GetHashMd5(Save.screenDesttopass));
             string screenname = Save.screenNametopass;
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Screenshots>("screenshots");
                 var screenshot = new Screenshots
