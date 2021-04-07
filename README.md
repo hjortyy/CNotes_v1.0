@@ -4,8 +4,9 @@ CNotes is a software solution for contemporaneous note taking. The notes and inf
 
 # Disclaimer
 
-CNotes was developed as a Submitted in partial fulfilment of the requirements of the bachelors degree in digital forensics at Noroff UC. It should not be used for production work, this is an early release application.
+CNotes was developed in partial fulfilment of the requirements of the bachelors degree in digital forensics at Noroff UC. It should not be used for production work, this is an early release application.
 
 # Installation Guide
 
+The installation package is in the folder "Installation Package". Download the entire folder and run either the .exe or the .msi file. The User Guide is included in the installation package
 # 
