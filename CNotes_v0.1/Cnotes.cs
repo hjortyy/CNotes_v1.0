@@ -101,8 +101,9 @@ namespace CNotes_v0._1
                     int time = itemlist.timestamp;
                     string attachment = itemlist.attachment;
                     string screenshot = itemlist.screenshot;
-                    DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(time);
-                    string humantime = dateTimeOffset.ToString("dd/MM/yy HH:mm");               // Changes the Epoch time that is stored with the note entry to a human readable format
+                    DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(time);   // Changes the Epoch time that is stored with the note entry to a proper date format (UTC)
+                    DateTimeOffset local = dateTimeOffset.ToLocalTime();                        // Changes the proper date format (UTC) to the systems local timezone
+                    string humantime = local.ToString("dd/MM/yy HH:mm");                        // Changes the proper date format, adjusted to the local timezone, to a human readable format
                     displayNotes.Items.Add(new ListViewItem(new string[] { humantime, note, attachment, screenshot }));
                 }
             }
