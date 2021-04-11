@@ -289,15 +289,6 @@ namespace CNotes_v0._1
             pdf.Save(filename);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /* When the button is clicked, it first generates the html.txt file and then 
-             * immediately converts that to a .pdf file. This allows the user no time to
-             * change the html.txt file to doctor the note entries*/
-            string filename = caseid.ToString() + "CaseLog.pdf";
-            CreateHTML(caseid);
-            PdfSharpConvert(filename);
-        }
 
         private void generate_Click(object sender, EventArgs e)
         {

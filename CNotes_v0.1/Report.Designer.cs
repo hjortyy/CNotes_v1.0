@@ -33,7 +33,6 @@ namespace CNotes_v0._1
             this.caseListBox = new System.Windows.Forms.ListBox();
             this.generate = new System.Windows.Forms.Button();
             this.screenshotCheckBox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
@@ -60,22 +59,12 @@ namespace CNotes_v0._1
             // screenshotCheckBox
             // 
             this.screenshotCheckBox.AutoSize = true;
-            this.screenshotCheckBox.Location = new System.Drawing.Point(191, 227);
+            this.screenshotCheckBox.Location = new System.Drawing.Point(191, 254);
             this.screenshotCheckBox.Name = "screenshotCheckBox";
             this.screenshotCheckBox.Size = new System.Drawing.Size(158, 17);
             this.screenshotCheckBox.TabIndex = 3;
             this.screenshotCheckBox.Text = "Include images in report text";
             this.screenshotCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(191, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Just Text Log";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -91,7 +80,6 @@ namespace CNotes_v0._1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 286);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.screenshotCheckBox);
             this.Controls.Add(this.generate);
             this.Controls.Add(this.caseListBox);
@@ -109,7 +97,6 @@ namespace CNotes_v0._1
         private System.Windows.Forms.ListBox caseListBox;
         private System.Windows.Forms.Button generate;
         private System.Windows.Forms.CheckBox screenshotCheckBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }

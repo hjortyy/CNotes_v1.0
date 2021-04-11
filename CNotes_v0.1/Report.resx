@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Chose a case from the list to generate a log of the case notes. This is in the form of a zip file, including two subfolders. One folder of screenshots and another for file attachments. The zip file contains a pdf file that logs all the notes taken during the case. There is also a button to generate just the case note pdf. The checkbox on the bottom can be checked if you want the screenshots included in the pdf.</value>
+    <value>Chose a case from the list to generate a log of the case notes. This is in the form of a zip file, including two subfolders. One folder of screenshots and another for file attachments. The zip file contains a pdf file that logs all the notes taken during the case. The checkbox on the bottom can be checked if you want the screenshots included in the pdf.</value>
   </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
