@@ -9,4 +9,7 @@ CNotes was developed in partial fulfilment of the requirements of the bachelors 
 # Installation Guide
 
 The installation package is in the folder "Installation Package". Download the entire folder and run either the .exe or the .msi file. The User Guide is included in the installation package
-# 
+
+# Feedback
+
+Don't hesitate to contact me directly on Twitter if you have feedback, as well as on here if you encounter issues.
