@@ -139,7 +139,7 @@ namespace CNotes_v0._1
             
             CaseNameTextbox.Clear();
             CaseNumberTextbox.Clear();
-            using (var db = new LiteDatabase(@"password=CNotes2021;filename=.\database\Lite.db"))
+            using (var db = new LiteDatabase(MainMenu.line))
             {
                 var collection = db.GetCollection<Cases>("cases");
                 var update = collection
